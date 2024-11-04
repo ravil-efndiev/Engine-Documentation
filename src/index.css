@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #213547;
+  background-color: #ffffff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  text-decoration: inherit;
+  transition: color 100ms;
+}
+a:hover {
+  color: #7178fb;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 2.4em;
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.6em;
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+button {
+  color: #fff;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 250ms, border-color 250ms;
+  @apply bg-blue-500;
+}
+button:hover {
+  border-color: #123787;
+  @apply bg-blue-600;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.header {
+  @apply bg-blue-900 p-2 w-full z-10;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.logo {
+  width: 10rem;
+}
+
+.container {
+  max-width: 90vw;
+  display: flex;
+  margin: 0 auto;
+}
+
+.header > .container {
+  @apply justify-between align-middle flex-row;
+}
+
+.wrapper {
+  @apply flex flex-col min-h-screen;
+}
+
+.tutorials {
+  @apply flex h-full flex-1;
+}
+
+.screenshot {
+  @apply py-4;
+}
+
+.screenshot > .container {
+  @apply my-4 items-center text-3xl justify-between;
+}
+
+.screenshot__img {
+  max-width: 800px;
+  border-radius: 10px;
+}
+
+.screenshot__text {
+  max-width: 30%;
+}
+
+input,
+textarea {
+  border: 1px solid #123787;
+  padding: 0.5rem;
+  @apply my-1;
+  border-radius: 0.25em;
+}
+
+.admin-form {
+  @apply flex flex-col max-w-80 mx-auto mt-5;
+}
+
+.sidebar {
+  min-width: 15%;
+}
+
+.active-tutorial > p,
+.active-tutorial > p:hover {
+  @apply bg-blue-400;
+}
+
+.tutorial-content {
+  @apply flex flex-col mx-auto;
+  max-width: 75%;
+  padding-bottom: 50px;
+}
+
+.tutorial-content h1,
+.tutorial-content h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.tutorial-content h1::after,
+.tutorial-content h2::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: #d1d5da;
+  margin-top: 5px;
+}
+
+.tutorial-content p {
+  @apply text-xl;
+}
