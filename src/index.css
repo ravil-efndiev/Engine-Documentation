@@ -77,10 +77,7 @@ button:focus-visible {
 }
 
 .header__burger-button {
-  display: none;
-  font-size: 40px;
-  margin: auto 0;
-  cursor: pointer;
+  @apply hidden text-5xl my-auto cursor-pointer;
 }
 
 .disabled {
@@ -103,16 +100,11 @@ button:focus-visible {
 
 @media screen and (max-width: 786px) {
   .header__menu {
-    display: none;
-    flex-direction: column;
-    gap: 0.5rem;
-    position: fixed;
+    @apply hidden flex-col gap-2 fixed p-4 rounded;
     top: 60px;
     left: 50%;
     transform: translateX(-50%);
     background: #2c2c31fa;
-    padding: 1rem;
-    border-radius: 5px;
     width: 70%;
     font-size: 20px;
     line-height: 30px;
@@ -177,10 +169,8 @@ button:focus-visible {
     padding: 20px 0;
   }
   .screenshot__text {
-    font-size: 20px;
-    line-height: 24px;
+    @apply text-xl mb-8;
     max-width: 70%;
-    margin-bottom: 30px;
   }
   .screenshot__img {
     width: 98%;
@@ -192,10 +182,7 @@ button:focus-visible {
 
 input,
 textarea {
-  border: 1px solid #123787;
-  padding: 0.5rem;
-  @apply my-1;
-  border-radius: 0.25em;
+  @apply my-1 p-2 rounded-lg border border-solid border-gray-800;
 }
 
 .admin-form {
@@ -207,31 +194,20 @@ textarea {
   @apply bg-gray-300;
 }
 
-.active-tutorial > p,
-.active-tutorial > p:hover {
-  @apply bg-blue-400;
-}
-
 .tutorial-content {
-  @apply flex flex-col mx-auto;
+  @apply flex flex-col mx-auto pb-10;
   max-width: 75%;
-  padding-bottom: 50px;
 }
 
 .tutorial-content h1,
 .tutorial-content h2 {
-  margin-top: 20px;
-  margin-bottom: 10px;
+  @apply mt-6 mb-3;
 }
 
 .tutorial-content h1::after,
 .tutorial-content h2::after {
   content: "";
-  display: block;
-  height: 2px;
-  width: 100%;
-  background-color: #d1d5da;
-  margin-top: 5px;
+  @apply h-0.5 w-full bg-gray-300 mt-1 block;
 }
 
 .tutorial-content p {
@@ -240,27 +216,19 @@ textarea {
 
 .sidebar-switch {
   display: none;
-  cursor: pointer;
-  font-size: 30px;
-  background-color: #184097;
-  color: #fff;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  padding: 2px;
-  text-align: center;
+  @apply cursor-pointer text-3xl bg-blue-900 text-white 
+    rounded-tr rounded-br p-0.5 text-center;
 }
 
 @media screen and (max-width: 930px) {
   .sidebar {
     display: none;
-    position: fixed;
+    @apply fixed z-10 my-6;
     left: 50%;
     transform: translateX(-50%);
     height: 70%;
-    z-index: 10;
     width: 70%;
     background-color: #aeb2b5;
-    margin: 20px 0;
   }
 
   .sidebar.sidebar-abs {
@@ -268,9 +236,7 @@ textarea {
   }
 
   .sidebar-switch {
-    display: block;
-    position: fixed;
-    z-index: 10;
+    @apply block fixed z-10;
   }
 }
 

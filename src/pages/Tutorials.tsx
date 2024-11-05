@@ -61,12 +61,12 @@ function Tutorials() {
               to={`/tutorials/${tutorial.id}`}
               className={({ isActive }) =>
                 isActive
-                  ? "hover:text-inherit active-tutorial"
+                  ? "hover:text-inherit group "
                   : "hover:text-inherit"
               }
               onClick={() => handleNavLinkClick(tutorial.id)}
             >
-              <p className="px-4 py-0.5 hover:bg-gray-400">{tutorial.name}</p>
+              <p className="px-4 py-0.5 hover:bg-gray-400 group-[]:bg-blue-400 group-hover:bg-blue-400">{tutorial.name}</p>
             </NavLink>
           ))}
         </div>
