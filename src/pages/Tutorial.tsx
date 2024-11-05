@@ -22,7 +22,7 @@ function Tutorial() {
         const document = await getDoc(tutorialDocumentRef);
         const data = document.data();
         if (!document.exists()) {
-          navigate("/not-found");
+          navigate("/tutorials/getting-started");
         }
         if (!data && document.exists()) {
           throw new Error("Tutorial data is empty!");
