@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { collectionID, db } from "../services/firebaseConfig";
 import { getDocs, collection, query, orderBy } from "firebase/firestore";
 import { useAdaptiveMenu } from "../utils/adaptiveMenu";
-import arrowIcon from "../assets/arrow.png"
 
 function Tutorials() {
   const params = useParams<{ tutorialID: string }>();
