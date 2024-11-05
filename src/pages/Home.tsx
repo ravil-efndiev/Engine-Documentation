@@ -9,7 +9,7 @@ function Home() {
   const navigate = useNavigate();
 
   const handleGetStartedClick = () => {
-    navigate("/tutorials");
+    navigate("/tutorials/");
   };
 
   return (

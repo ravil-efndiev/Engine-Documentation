@@ -3,6 +3,8 @@ import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import { collectionID, db } from "../services/firebaseConfig";
 import { getDocs, collection, query, orderBy } from "firebase/firestore";
+import { useAdaptiveMenu } from "../utils/adaptiveMenu";
+import arrowIcon from "../assets/arrow.png"
 
 function Tutorials() {
   const params = useParams<{ tutorialID: string }>();
@@ -14,6 +16,8 @@ function Tutorials() {
     const saved = localStorage.getItem("active-id");
     return saved !== null ? JSON.parse(saved) : "";
   });
+
+  const { menuOpen, setMenuOpen, menuRef, switchButtonRef } = useAdaptiveMenu();
 
   useEffect(() => {
     const fetchTutorials = async () => {
@@ -51,7 +55,7 @@ function Tutorials() {
     <div className="wrapper">
       <Header />
       <main className="tutorials">
-        <div className="bg-gray-300 sidebar">
+        <div ref={menuRef} className={menuOpen ? "sidebar sidebar-abs" : "sidebar"}>
           {tutorials.map((tutorial) => (
             <NavLink
               key={tutorial.id}
@@ -66,6 +70,13 @@ function Tutorials() {
               <p className="px-4 py-0.5 hover:bg-gray-400">{tutorial.name}</p>
             </NavLink>
           ))}
+        </div>
+        <div 
+          className="sidebar-switch"
+          ref={switchButtonRef}
+          onClick={() => setMenuOpen(m => !m)}
+        >
+          ☰
         </div>
         <Outlet />
       </main>

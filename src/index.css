@@ -72,6 +72,21 @@ button:focus-visible {
   color: rgba(255, 255, 255, 0.87);
 }
 
+.header__menu {
+  @apply flex justify-between items-center;
+}
+
+.header__burger-button {
+  display: none;
+  font-size: 40px;
+  margin: auto 0;
+  cursor: pointer;
+}
+
+.disabled {
+  display: none;
+}
+
 .logo {
   width: 10rem;
 }
@@ -84,6 +99,38 @@ button:focus-visible {
 
 .header > .container {
   @apply justify-between align-middle flex-row;
+}
+
+@media screen and (max-width: 786px) {
+  .header__menu {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2c2c31fa;
+    padding: 1rem;
+    border-radius: 5px;
+    width: 70%;
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .header__menu > a {
+    padding: 3px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .header__menu.burger-menu {
+    display: flex;
+  }
+
+  .header__burger-button {
+    display: block;
+  }
 }
 
 .wrapper {
@@ -111,6 +158,38 @@ button:focus-visible {
   max-width: 30%;
 }
 
+@media screen and (max-width: 1200px) {
+  .screenshot > .container {
+    flex-direction: column;
+  }
+  .screenshot__text {
+    margin-bottom: 10px;
+    max-width: 80%;
+    text-align: center;
+  }
+  .screenshot__img {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .screenshot {
+    padding: 20px 0;
+  }
+  .screenshot__text {
+    font-size: 20px;
+    line-height: 24px;
+    max-width: 70%;
+    margin-bottom: 30px;
+  }
+  .screenshot__img {
+    width: 98%;
+  }
+  .screenshot > .container {
+    max-width: 100vw;
+  }
+}
+
 input,
 textarea {
   border: 1px solid #123787;
@@ -125,6 +204,7 @@ textarea {
 
 .sidebar {
   min-width: 15%;
+  @apply bg-gray-300;
 }
 
 .active-tutorial > p,
@@ -156,4 +236,46 @@ textarea {
 
 .tutorial-content p {
   @apply text-xl;
+}
+
+.sidebar-switch {
+  display: none;
+  cursor: pointer;
+  font-size: 30px;
+  background-color: #184097;
+  color: #fff;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 2px;
+  text-align: center;
+}
+
+@media screen and (max-width: 930px) {
+  .sidebar {
+    display: none;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 70%;
+    z-index: 10;
+    width: 70%;
+    background-color: #aeb2b5;
+    margin: 20px 0;
+  }
+
+  .sidebar.sidebar-abs {
+    display: block;
+  }
+
+  .sidebar-switch {
+    display: block;
+    position: fixed;
+    z-index: 10;
+  }
+}
+
+@media screen and (max-width: 836px) {
+  .tutorial-content {
+    max-width: 85%;
+  }
 }
