@@ -150,6 +150,16 @@ button:focus-visible {
   max-width: 30%;
 }
 
+.cards > .container {
+  @apply grid gap-5 items-center;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+}
+
+.cards > h2::before {
+  content: "";
+  @apply h-2 w-36 bg-blue-800 block mx-auto mb-6
+}
+
 @media screen and (max-width: 1200px) {
   .screenshot > .container {
     flex-direction: column;
@@ -215,28 +225,35 @@ textarea {
 }
 
 .sidebar-switch {
-  display: none;
-  @apply cursor-pointer text-3xl bg-blue-900 text-white 
-    rounded-tr rounded-br p-0.5 text-center;
+  @apply hidden cursor-pointer text-3xl bg-gray-300 text-white 
+    rounded-tr rounded-br p-0.5 text-center items-center sticky top-0 z-10 h-14 
+    border border-gray-600;
+}
+
+.sidebar-switch > img {
+  @apply w-5
+}
+
+.overlay {
+  @apply invisible bg-gray-900 opacity-50 fixed w-screen h-screen z-10;
 }
 
 @media screen and (max-width: 930px) {
   .sidebar {
-    display: none;
-    @apply fixed z-10 my-6;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 70%;
-    width: 70%;
-    background-color: #aeb2b5;
+    @apply fixed z-20 top-0 h-screen min-w-40 -translate-x-full;
+    transition: transform 300ms ease-in-out;
   }
 
-  .sidebar.sidebar-abs {
-    display: block;
+  .sidebar.sidebar-abs-active {
+    @apply translate-x-0;
   }
 
   .sidebar-switch {
-    @apply block fixed z-10;
+    display: flex;
+  }
+
+  .overlay-active {
+    @apply visible;
   }
 }
 

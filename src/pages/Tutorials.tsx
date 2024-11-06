@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { collectionID, db } from "../services/firebaseConfig";
 import { getDocs, collection, query, orderBy } from "firebase/firestore";
 import { useAdaptiveMenu } from "../utils/adaptiveMenu";
+import arrowImg from "../assets/arrow.png"
 
 function Tutorials() {
   const params = useParams<{ tutorialID: string }>();
@@ -48,13 +49,14 @@ function Tutorials() {
   const handleNavLinkClick = (tutorialID: string) => {
     setActiveTutorialID(tutorialID);
     localStorage.setItem("active-id", JSON.stringify(tutorialID));
+    setMenuOpen(false);
   };
 
   return (
     <div className="wrapper">
       <Header />
       <main className="tutorials">
-        <div ref={menuRef} className={menuOpen ? "sidebar sidebar-abs" : "sidebar"}>
+        <div ref={menuRef} className={menuOpen ? "sidebar sidebar-abs-active" : "sidebar"}>
           {tutorials.map((tutorial) => (
             <NavLink
               key={tutorial.id}
@@ -66,7 +68,9 @@ function Tutorials() {
               }
               onClick={() => handleNavLinkClick(tutorial.id)}
             >
-              <p className="px-4 py-0.5 hover:bg-gray-400 group-[]:bg-blue-400 group-hover:bg-blue-400">{tutorial.name}</p>
+              <p className="px-4 py-0.5 hover:bg-gray-400 group-[]:bg-blue-400 group-hover:bg-blue-400">
+                {tutorial.name}
+              </p>
             </NavLink>
           ))}
         </div>
@@ -75,10 +79,11 @@ function Tutorials() {
           ref={switchButtonRef}
           onClick={() => setMenuOpen(m => !m)}
         >
-          ☰
+          <img src={arrowImg} alt="arrow"/>
         </div>
         <Outlet />
       </main>
+      <div className={menuOpen ? "overlay overlay-active" : "overlay"}></div>
     </div>
   );
 }
