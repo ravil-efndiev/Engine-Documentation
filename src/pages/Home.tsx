@@ -96,7 +96,7 @@ function Home() {
             />
             <Card
               title="Scenes"
-              text="Save and load scene files for controll of your game"
+              text="Save and load scene files for control of your game"
               image={{
                 src: sceneImg,
                 alt: "game & editor",
